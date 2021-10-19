@@ -1,0 +1,11 @@
+C:\Users\unieuro\AppData\Local\JetBrains\CLion2020.1\cygwin_cmake\bin\cmake.exe -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" "/cygdrive/c/Users/unieuro/Desktop/Development/Algorithms/Programming Projects/C/SudokuSolver"
+-- The C compiler identification is GNU 6.4.0
+-- Check for working C compiler: /usr/bin/cc
+-- Check for working C compiler: /usr/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /cygdrive/c/Users/unieuro/Desktop/Development/Algorithms/Programming Projects/C/SudokuSolver/cmake-build-debug
