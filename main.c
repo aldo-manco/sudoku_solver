@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <assert.h>
+#include <time.h>
 
 /*
  * Created by:
@@ -13,12 +14,13 @@
 #define MINUS_INFINITE -2147483648
 
 bool sudokuSolver(int sudokuGrid[][SIZE]);
+void fillSudokuGrid(int sudokuGrid[][SIZE]);
 
 int main() {
 
     // SUDOKU WHICH NEEDS TO BE SOLVED
 
-    /*int sudokuGrid[SIZE][SIZE] =
+    int sudokuGrid[SIZE][SIZE] =
             {{0, 0, 0, 0, 6, 0, 2, 0, 7},
              {6, 7, 8, 0, 0, 0, 0, 0, 5},
              {2, 0, 5, 0, 0, 0, 0, 0, 0},
@@ -27,11 +29,29 @@ int main() {
              {0, 0, 0, 2, 0, 9, 0, 7, 0},
              {0, 0, 0, 9, 0, 6, 0, 0, 0},
              {0, 0, 0, 0, 5, 0, 4, 3, 0},
-             {8, 0, 0, 4, 0, 0, 5, 2, 0}};*/
+             {8, 0, 0, 4, 0, 0, 5, 2, 0}};
+
+    /*while (!sudokuSolver(sudokuGrid)){
+
+        int sudokuGrid[SIZE][SIZE] =
+                {{0, 0, 0, 0, 6, 0, 2, 0, 7},
+                 {6, 7, 8, 0, 0, 0, 0, 0, 5},
+                 {2, 0, 5, 0, 0, 0, 0, 0, 0},
+                 {0, 9, 0, 0, 0, 0, 0, 0, 0},
+                 {0, 2, 0, 7, 3, 0, 0, 5, 0},
+                 {0, 0, 0, 2, 0, 9, 0, 7, 0},
+                 {0, 0, 0, 9, 0, 6, 0, 0, 0},
+                 {0, 0, 0, 0, 5, 0, 4, 3, 0},
+                 {8, 0, 0, 4, 0, 0, 5, 2, 0}};
+
+        fillSudokuGrid(sudokuGrid);
+    }
+
+    assert(!sudokuSolver(sudokuGrid));*/
 
     // SUDOKU SOLVED
 
-    int sudokuGrid[SIZE][SIZE] =
+    int sudokuGridSolved[SIZE][SIZE] =
             {{5, 3, 4, 6, 7, 8, 9, 1, 2},
              {6, 7, 2, 1, 9, 5, 3, 4, 8},
              {1, 9, 8, 3, 4, 2, 5, 6, 7},
@@ -42,7 +62,7 @@ int main() {
              {2, 8, 7, 4, 1, 9, 6, 3, 5},
              {3, 4, 5, 2, 8, 6, 1, 7, 9}};
 
-    assert(!sudokuSolver(sudokuGrid));
+    assert(!sudokuSolver(sudokuGridSolved));
 
     return 0;
 }
@@ -110,4 +130,17 @@ bool sudokuSolver(int sudokuGrid[][SIZE]) {
         }
     }
     return true;
+}
+
+void fillSudokuGrid(int sudokuGrid[][SIZE]){
+
+    for (int i = 0; i < SIZE; ++i) {
+        for (int j = 0; j < SIZE; ++j) {
+
+            if (sudokuGrid[i][j]==0){
+                srand(time(NULL));
+                sudokuGrid[i][j] = rand()%10;
+            }
+        }
+    }
 }
