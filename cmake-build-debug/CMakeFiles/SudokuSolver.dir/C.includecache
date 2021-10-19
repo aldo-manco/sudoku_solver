@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/cygdrive/c/Users/unieuro/Desktop/Development/Algorithms/Programming Projects/C/SudokuSolver/main.c
+stdio.h
+-
+stdlib.h
+-
+stdbool.h
+-
+assert.h
+-
+
