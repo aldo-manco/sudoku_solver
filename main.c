@@ -15,6 +15,7 @@
 
 bool sudokuSolver(int sudokuGrid[][SIZE]);
 void fillSudokuGrid(int sudokuGrid[][SIZE]);
+void printSudoku(int sudokuGrid[][SIZE]);
 
 int main() {
 
@@ -62,6 +63,8 @@ int main() {
              {2, 8, 7, 4, 1, 9, 6, 3, 5},
              {3, 4, 5, 2, 8, 6, 1, 7, 9}};
 
+    printSudoku(sudokuGridSolved);
+
     assert(!sudokuSolver(sudokuGridSolved));
 
     return 0;
@@ -76,9 +79,9 @@ bool sudokuSolver(int sudokuGrid[][SIZE]) {
                 if (sudokuGrid[i][j] == sudokuGrid[i][k]) {
 
                     printf("Two elements on the same row:\n"
-                           "#1 Element: (%i, %i)\n"
+                           "#1 Element: (%i , %i)\n"
                            "#2 Element: (%i, %i)",
-                           i, j, i, k);
+                           i + 1, j + 1, i + 1, k + 1);
 
                     return false;
                 }
@@ -88,7 +91,7 @@ bool sudokuSolver(int sudokuGrid[][SIZE]) {
                     printf("Two elements on the same column:\n"
                            "#1 Element: (%i, %i)\n"
                            "#2 Element: (%i, %i)",
-                           j, i, k, i);
+                           j + 1, i + 1, k + 1, i + 1);
 
                     return false;
                 }
@@ -117,7 +120,7 @@ bool sudokuSolver(int sudokuGrid[][SIZE]) {
                                    "- First Element: (%i, %i);\n"
                                    "- Last Element: (%i, %i)\n\n"
                                    "Elements in conflict: %i, %i",
-                                   w, x, y, z, tmp, sudokuGrid[i][j]);
+                                   w + 1, x + 1, y + 1, z + 1, tmp, sudokuGrid[i][j]);
 
                             return false;
                         }
@@ -142,5 +145,18 @@ void fillSudokuGrid(int sudokuGrid[][SIZE]){
                 sudokuGrid[i][j] = rand()%10;
             }
         }
+    }
+}
+
+void printSudoku(int sudokuGrid[][SIZE]) {
+    printf("     1   2   3   4   5   6   7   8   9");
+    printf("\n   -------------------------------------\n");
+
+    for (int i = 0; i < SIZE; ++i) {
+        printf("%i  |", i + 1);
+        for (int j = 0; j < SIZE; ++j) {
+            printf(" %i |", sudokuGrid[i][j]);
+        }
+        printf("\n   -------------------------------------\n");
     }
 }
